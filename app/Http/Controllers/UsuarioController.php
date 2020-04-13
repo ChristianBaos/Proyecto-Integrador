@@ -15,8 +15,14 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request)
     {
+        
         if ($request) {
             $query = trim($request->get('searchText'));
             $usuarios = DB::table('usuarios')->where('nombre', 'LIKE', '%' . $query . '%')->orderBy('id', 'asc')->paginate(5);
@@ -29,8 +35,9 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $request->user()->authorizeRoles('Administrador');
         return view('Usuario.create');
     }
 
@@ -68,8 +75,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,Request $request)
     {
+        $request->user()->authorizeRoles('Administrador');
         $usuario=usuario::find($id);
         return view('usuario.edit',compact('usuario'));
     }
@@ -83,6 +91,7 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->user()->authorizeRoles('Administrador');
         $this->validate($request,[ 'nombre'=>'required', 'apellido'=>'required', 'documento'=>'required' , 'telefono'=>'required']);
         usuario::find($id)->update($request->all());
         return redirect()->route('usuario.index');
@@ -94,8 +103,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+        $request->user()->authorizeRoles('Administrador');
         $usuario = Usuario::findOrFail($id);
         $usuario->delete();
         return redirect()->route('usuario.index');

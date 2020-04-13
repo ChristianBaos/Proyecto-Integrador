@@ -16,8 +16,15 @@ class AdministradorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(Request $request)
     {
+        $request->user()->authorizeRoles('Administrador');
         if ($request) {
             $query = trim($request->get('searchText'));
             $admin = DB::table('administradors')->where('nombre', 'LIKE', '%' . $query . '%')->orderBy('id', 'asc')->paginate(5);
@@ -30,8 +37,9 @@ class AdministradorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        $request->user()->authorizeRoles('Administrador');
         return view('Administrador.create');
     }
 
@@ -69,6 +77,7 @@ class AdministradorController extends Controller
      */
     public function edit($id)
     {
+        
         $administrador=administrador::find($id);
         return view('administrador.edit',compact('administrador'));
     }
