@@ -20,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="{{asset('/dist/css/skins/skin-blue.min.css')}}">
+  <link rel="stylesheet" href="{{asset('/dist/css/skins/skin-green.min.css')}}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,7 +53,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -260,18 +260,18 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="http://127.0.0.1:8000"><i class="fa fa-link"></i> <span>Inicio</span></a></li>
-        <li><a href="usuario"><i class="fa fa-link"></i> <span>Usuarios</span></a></li>
+        <li class="active"><a href="http://127.0.0.1:8000"><i class=" fa fa-home " ></i> <span>Inicio</span></a></li>
+        <li><a href="usuario"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
         <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>Administrador</span>
+        <a href="#"><i class="fa fa-cog"></i> <span>Administrador</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Crear Reportes</a></li>
-            <li><a href="#">Registrar Operarios</a></li>
-            <li><a href="administrador">Mostrar Administrador</a></li>
+            <li><a href="#" class="fa fa-user">Crear Reportes</a></li>
+            <li><a href="#" class="fa fa-user">Registrar Operarios</a></li>
+            <li><a href="administrador" class="fa fa-user">Mostrar Administrador</a></li>
           </ul>
         </li>
       </ul>
@@ -285,7 +285,7 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Parqueadero
+        Parqueadero Vida
         <small></small>
       </h1>
       <ol class="breadcrumb">

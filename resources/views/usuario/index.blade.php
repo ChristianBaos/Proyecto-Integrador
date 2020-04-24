@@ -4,7 +4,8 @@
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <h3>Listado de Usuarios
             <a href="usuario/create">
-                <button class="btn btn-info ">Ingresar Nuevo Usuario</button></a></h3>
+                
+            <button class="btn btn-info fa fa-user"  >Ingresar Nuevo Usuario</button></a></h3>
                 @include('usuario.search')
 
     </div>

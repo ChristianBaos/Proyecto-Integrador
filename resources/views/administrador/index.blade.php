@@ -4,7 +4,7 @@
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <h3>Datos del Administrador
             <a href="administrador/create">
-                <button class="btn btn-info ">Crear Un nuevo Administrador</button></a></h3>
+                <button class="btn btn-info fa fa-user-plus">Crear Un nuevo Administrador</button></a></h3>
                 @include('administrador.search')
     </div>
 </div>
@@ -16,13 +16,12 @@
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Documento</th>
-                    <th>Password</th>
                     <th>Opciones</th>
                 </thead>@foreach ($admin as $administrador)<tr>
                     <td>{{ $administrador->id}}</td>
                     <td>{{ $administrador->nombre}}</td>
                     <td>{{ $administrador->documento}}</td>
-                    <td>{{ $administrador->password}}</td>
+                    
                     <td>
                         <a href="{{URL::action('AdministradorController@edit',$administrador->id)}}">
                             <button class="btn btn-success"> <span class="glyphicon glyphicon-search"></span> Editar</button></a>
